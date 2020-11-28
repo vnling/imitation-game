@@ -1,0 +1,19 @@
+{
+  "name": "the-imitation-game",
+  "version": "1.0.0",
+  "description": "an educational game about machine learning",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "vnling",
+  "license": "ISC",
+  "dependencies": {
+    "@runwayml/hosted-models": "^0.3.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
