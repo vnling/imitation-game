@@ -1,0 +1,18 @@
+:root {
+    --primary: purple;
+    --secondary: white;
+}
+
+#welcome-message {
+    width: 50%;
+    color: var(--secondary);
+    background-color: var(--primary);
+}
+
+.button {
+    display: block;
+}
+
+.sample {
+    border: 2px solid var(--primary);
+}
