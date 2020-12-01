@@ -3,6 +3,9 @@ const express = require("express");
 const dotenv = require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
+const fs = require('fs');
+const filename = ('data/Sci-Fi/scifi.txt');
+let lines = [];
 
 // make all the files in 'public' available
 app.use(express.static("public"));
@@ -18,23 +21,46 @@ const model = new HostedModel({
     token: process.env.RUNWAYTOKEN
 });
 
+fs.readFile(filename, "utf-8", function(err, data){
+    if(err) throw err;
+    lines = data.replace(/\n$/, '').split('\n');
+ })
+
+function getRandomLine() {
+    let firstLine = lines[Math.floor(Math.random()*lines.length)];
+    let actualText = firstLine;
+    let counter = 0;
+    let i = Math.floor(Math.random()*lines.length + 1);
+    while (actualText.length < 200) {
+        console.log(actualText.length);
+        let tempStr = lines[i + counter];
+        counter++;
+        actualText = actualText.concat(tempStr);
+    }
+    return [firstLine, actualText];
+}
+
 app.post("/runwayml", async (request, response) => {
     console.log(request.body);
 
     const seed = Math.floor(Math.random() * 1000);
     const inputs = {
         "prompt": request.body.prompt,
-        "max_characters": 400,
+        "max_characters": 200,
         "top_p": 0.5,
         "seed": seed
     };
     console.log("receiving inputs");
     model.query(inputs).then(outputs => {
-        // const { generated_text, encountered_end } = outputs;
-        // use the outputs in your project
         console.log("sending outputs");
         response.json(outputs);
     });
-    // const outputs = await model.query(inputs);
 
+});
+
+app.get("/scifi-random", async (request, response) => {
+    let reply = {
+        message: getRandomLine(),
+    }
+    response.json(reply); 
 });

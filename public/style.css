@@ -1,18 +1,101 @@
 :root {
-    --primary: purple;
+    --primary: #322567;
     --secondary: white;
+    --tertiary: #4d4081;
+    --quad: #1c104a;
+}
+
+body {
+    background-color: black;
+    font-family: Space Mono, 'Trebuchet MS', Helvetica, sans-serif;
+    color: var(--secondary);
+}
+
+#bgimg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+    z-index: -1;
 }
 
 #welcome-message {
-    width: 50%;
+    max-height: 90vh;
+    position: absolute;
+    top: 10vh;
+    left: 5vw;
+}
+
+#welcome-message h1 {
+    width: 40%;
+    padding: 20px;
+    font-size: 1.8em;
     color: var(--secondary);
     background-color: var(--primary);
+    border-radius: 20px;
+    margin-bottom: 30px;
 }
 
 .button {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 10px;
+    border-radius: 10px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     display: block;
+    color: var(--secondary);
+    background-color: var(--primary);
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+#welcome-message a:hover {
+    background-color: var(--tertiary);
+}
+
+#welcome-alien img {
+    height: 80%;
+    position: absolute;
+    bottom: 5vh;
+    right: 2vw;
+}
+
+#header {
+    text-align: center;
+    font-size: 2em;
+}
+
+#container {
+    display: flex;
+    width: 100%;
 }
 
 .sample {
-    border: 2px solid var(--primary);
+    margin: 30px 40px;
+    background-color: var(--secondary);
+    color: var(--primary);
+    min-width: 40vw;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#test-alien img {
+    width: 40%;
+    display: inline-block;
+    transform: translate(70px, 0);
+}
+
+#instruction {
+    transform: translate(70px, 0px);
+    background-color: var(--primary);
+    width: fit-content;
+    max-width: 40%;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
 }
