@@ -31,8 +31,7 @@ function getRandomLine() {
     let actualText = firstLine;
     let counter = 0;
     let i = Math.floor(Math.random()*lines.length + 1);
-    while (actualText.length < 200) {
-        console.log(actualText.length);
+    while (actualText.length < 300) {
         let tempStr = lines[i + counter];
         counter++;
         actualText = actualText.concat(tempStr);
@@ -46,7 +45,7 @@ app.post("/runwayml", async (request, response) => {
     const seed = Math.floor(Math.random() * 1000);
     const inputs = {
         "prompt": request.body.prompt,
-        "max_characters": 200,
+        "max_characters": 300,
         "top_p": 0.5,
         "seed": seed
     };
