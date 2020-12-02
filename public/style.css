@@ -78,7 +78,7 @@ body {
     margin: 30px 40px;
     background-color: var(--secondary);
     color: var(--primary);
-    min-width: 40vw;
+    width: 40vw;
     border-radius: 20px;
     padding: 10px;
     font-weight: bold;
@@ -98,4 +98,8 @@ body {
     padding: 10px;
     border-radius: 20px;
     display: inline-block;
+}
+
+#instruction a {
+    color: var(--secondary);
 }
